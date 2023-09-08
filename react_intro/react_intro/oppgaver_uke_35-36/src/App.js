@@ -1,6 +1,8 @@
 import './App.css';
 import Oppgave1 from './Oppgave1';
-import oppgave2 from './Oppgave2'
+import divideBy from './Oppgave2';
+import multiplyBy from './Oppgave2';
+import Oppgave3 from './oppgave3';
 
 function App() {
   

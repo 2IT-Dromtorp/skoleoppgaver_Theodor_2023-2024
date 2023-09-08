@@ -37,7 +37,7 @@ function DeloppgaveC() {
             <p> Svar: let a = 2 </p>
             <p>    let b = 3 </p>
             <p>    let produkt = a * b </p>
-            <P> console.log(produkt) </p>
+            <p> console.log(produkt) </p>
     </div>
     )
 
