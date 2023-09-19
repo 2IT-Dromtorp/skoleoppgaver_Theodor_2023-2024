@@ -1,0 +1,10 @@
+#up{
+    color: red;
+    background-color: blue;
+    background-image: url(images/uparrow.png);
+
+}
+#down{
+    color: white;
+    background-color: red;
+}

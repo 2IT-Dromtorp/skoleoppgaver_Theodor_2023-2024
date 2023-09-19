@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './+-button.css';
+import './button.css';
 let button = document.getElementsByClassName("button")
 
 export default function MyApp() {
@@ -15,9 +15,9 @@ export default function MyApp() {
 
   return (
     <div>
-      <button onClick={PlusCount}>+</button>
+      <button onClick={PlusCount} id='up'>+</button>
       <h1>Count: {count}</h1>
-      <button onClick={MinusCount}>-</button>
+      <button onClick={MinusCount} id='down'>-</button>
     </div>
   );
 }
