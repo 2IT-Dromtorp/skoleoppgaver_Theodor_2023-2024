@@ -1,4 +1,5 @@
-import logo from './logo.svg';
+
+/* import logo from './logo.svg';
 import './App.css';
 import { FaHandRock } from 'react-icons/fa';
 import { FaHandScissors } from 'react-icons/fa';
@@ -10,16 +11,16 @@ function player({name ="player", score="0" }) {
      <div className='score'>{'${name}: ${score}'}</div>
     <div className='action'>
       <ActionIcon Action={}
-      </div>                 
+    </div>                 
   </div>
-  function ActionIcon({Action}){
+  function ActionIcon({Action, ...props}){
     const icons = {
       rock: FaHandRock,
       scissors: FaHandScissors,
       Paper: FaHandPaper,
         };
         const icon = icons[Action]
-        return (<icon/>);
+        return (<icon {...props}/>);
   }
   
 }
@@ -30,7 +31,6 @@ function App() {
       <h1>rock paper scissors</h1>
        <div>
         <div className='container'>
-          
          <div className='player'>
            <div className='score'>player2: 0</div>
            <div className='action'><FaHandRock size={60}/></div>              
@@ -47,4 +47,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; */

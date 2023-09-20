@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import './button.css';
+import './+-button.css';
+import { AiOutlineArrowUp } from 'react-icons/ai';
+import { AiOutlineArrowDown } from 'react-icons/ai';
 let button = document.getElementsByClassName("button")
 
 export default function MyApp() {
@@ -14,10 +16,10 @@ export default function MyApp() {
   };
 
   return (
-    <div>
-      <button onClick={PlusCount} id='up'>+</button>
+    <div className='center'>
+      <button className='btn' onClick={PlusCount} id='up'><AiOutlineArrowUp size={60}/></button>
       <h1>Count: {count}</h1>
-      <button onClick={MinusCount} id='down'>-</button>
+      <button className='btn' onClick={MinusCount} id='down'><AiOutlineArrowDown size={60}/></button>
     </div>
   );
 }
