@@ -1,50 +1,76 @@
-
-/* import logo from './logo.svg';
+import React, { useState } from 'react';
+import maskin_papir from './image/maskin_papir.png'
+import maskin_stein from './image/maskin_stein.png'
+import maskin_saks from './image/maskin_saks.png'
+import Resizer from "react-image-file-resizer";
 import './App.css';
-import { FaHandRock } from 'react-icons/fa';
-import { FaHandScissors } from 'react-icons/fa';
-import { FaHandPaper } from 'react-icons/fa';
 
-function player({name ="player", score="0" }) {
-  return 
-    <div className='player'>
-     <div className='score'>{'${name}: ${score}'}</div>
-    <div className='action'>
-      <ActionIcon Action={}
-    </div>                 
-  </div>
-  function ActionIcon({Action, ...props}){
-    const icons = {
-      rock: FaHandRock,
-      scissors: FaHandScissors,
-      Paper: FaHandPaper,
-        };
-        const icon = icons[Action]
-        return (<icon {...props}/>);
-  }
-  
-}
-//alt under skal bli lagt til i functions hadde ikke nok tid sist gang
-function App() {
+const RockPaperScissors = () => {
+  const [userChoice, setUserChoice] = useState(null);
+  const [computerChoice, setComputerChoice] = useState(null);
+  const [result, setResult] = useState(null);
+
+  const choices = ['rock', 'paper', 'scissors'];
+
+  const choiceImages = {
+    rock: maskin_stein,
+    paper: maskin_papir,
+    scissors: maskin_saks,
+  };
+
+  const generateComputerChoice = () => {
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
+  };
+
+  const determineWinner = (user, computer) => {
+    if (user === computer) return 'It\'s a tie!';
+    if (
+      (user === 'rock' && computer === 'scissors') ||
+      (user === 'paper' && computer === 'rock') ||
+      (user === 'scissors' && computer === 'paper')
+    ) {
+      return 'You win!';
+    } else {
+      return 'Computer wins!';
+    }
+  };
+
+  const handleUserChoice = (choice) => {
+    const computer = generateComputerChoice();
+    setUserChoice(choice);
+    setComputerChoice(computer);
+    const winner = determineWinner(choice, computer);
+    setResult(winner);
+  };
+
   return (
-    <div className='center'>
-      <h1>rock paper scissors</h1>
-       <div>
-        <div className='container'>
-         <div className='player'>
-           <div className='score'>player2: 0</div>
-           <div className='action'><FaHandRock size={60}/></div>              
-          </div>
-        </div>
-        <div>
-        <button className='button-round'><FaHandRock size={30}/></button>
-        <button className='button-round'><FaHandPaper size={30}/></button>
-        <button className='button-round'><FaHandScissors size={30}/></button>
-        </div>
-        <h2>player1 wins</h2>
+    <div className="center">
+      <h1>Rock Paper Scissors</h1>
+      <div className="choices">
+        {choices.map((choice) => (
+          <button
+            className="button-round"
+            key={choice}
+            onClick={() => handleUserChoice(choice)}
+          >
+            <img src={choiceImages[choice]} alt={choice} height={50} width={50} />
+          </button>
+        ))}
+      </div>
+      <div className="result">
+        {userChoice && computerChoice && (
+          <>
+            <p>You chose: {userChoice}</p>
+            <img src={choiceImages[userChoice]} alt={userChoice} height={160} width={160} />
+            <p>Computer chose: {computerChoice}</p>
+            <img src={choiceImages[computerChoice]} alt={computerChoice} height={160} width={160} /> 
+            <p>{result}</p>
+          </>
+        )}
       </div>
     </div>
   );
-}
+};
 
-export default App; */
+export default RockPaperScissors;

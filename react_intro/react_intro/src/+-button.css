@@ -4,7 +4,10 @@
     --primary-light: #5472d3;
     --primary-text: #ffffff;
   }
-
+  html {
+    background-color: var(--primary-dark);
+  }
+  
   .btn{
     width: 75px;
     height: 75px;
@@ -17,7 +20,8 @@
   .btn:hover{
     color: var(--primary-light);
   }
-
+  
   .center{
     text-align: center;
   }
+  

@@ -1,7 +1,7 @@
 :root {
-  --primary: #0d47a1;
-  --primary-dark: #002171;
-  --primary-light: #5472d3;
+  --primary: #d80000;
+  --primary-dark: #570000;
+  --primary-light: #ff0000;
   --primary-text: #ffffff;
 }
 
@@ -52,16 +52,11 @@ h2{
   flex-grow: 1;
   color: var(--primary);
 }
-.button-round{
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  margin: 2px;
-  background-color: var(--primary-dark);
-  color: var(--primary-text);
+.button{
+  width: 100px;
+  height: 100px;
 }
-.button-round:hover {
-  background-color: var(--primary-light);
+.img{
+  height: 100px;
+  width: 100px;
 }
