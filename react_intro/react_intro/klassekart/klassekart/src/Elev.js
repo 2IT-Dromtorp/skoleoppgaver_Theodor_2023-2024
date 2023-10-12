@@ -6,6 +6,6 @@ export default function(props){
 
     const navigate = useNavigate();
     return(
-        <div className='elev' onClick={() => navigate(path)}> {name} </div>
+        <div className='elev' onClick={() => navigate(path)}> {name} </div>        
     )
 }

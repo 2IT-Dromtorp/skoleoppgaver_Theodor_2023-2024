@@ -1,8 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Routes } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import  Profile, {profile} from './Profile'
-import Home from './home'
+import namesData from './profile.json';
+import Home from './home';
+
 
 function App() {
 
