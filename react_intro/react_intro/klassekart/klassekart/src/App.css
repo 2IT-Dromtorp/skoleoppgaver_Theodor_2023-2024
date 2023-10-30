@@ -1,3 +1,9 @@
+:root {
+  --primary: #000000;
+  --primary-background:#36013F;
+  --primary-light: #ffffff;
+  --primary-elev: #4B0082 ;
+}
 .App {
   text-align: center;
   background-color: #282c34;
@@ -21,7 +27,7 @@
   align-items: center;
   justify-content: space-around;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--primary-elev);
 }
 
 .App-link {
@@ -48,10 +54,12 @@
   justify-content: center;
   align-items: center;
   padding: 2em;
-  width: 2em;
+  width: 5.5em;
+  height: 5.5em;
   margin-top: 2em;
   font-size: 1.5em;
-  border: solid rgb(255, 255, 255) 2px;
+  border: solid var(--primary-light) 2px;
+  background-color: var(--primary-elev);
 }
 
 .container {
@@ -65,7 +73,7 @@
   align-items: center;
   width: 50%;
   height: 100%;
-  background: blue;
+  background: var(--primary-background);
 }
 
 .rightside {
@@ -74,7 +82,7 @@
   align-items: center;
   width: 50%;
   height: 100%;
-  background: red;
+  background: var(--primary-background);
 }
 
 
@@ -88,7 +96,8 @@
 
 .profile-box   {
   border: solid black 2px;
-  background: coral;
+  background: var(--primary-background);
   height: 50%;
 
 }
+
