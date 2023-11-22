@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-export default function(){
+export default function courses(){
     return (
     <div>
-        <div>
-            <div className='course'>heimkunnskap
+        <div className='course_box'>
+            <div className='course'><h1>heimkunnskap</h1>
             </div>
-            <div className='course'>kunnskap
+            <div className='course'><h1>heimkunnskap</h1>
             </div>
-            <div className='course'>kunne
+            <div className='course'><h1>heimkunnskap</h1>
             </div>
-            <div className='course'>ikke
+            <div className='course'><h1>heimkunnskap</h1>
             </div>
         </div>
     </div>
