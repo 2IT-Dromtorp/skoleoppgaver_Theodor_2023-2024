@@ -1,8 +1,13 @@
 import React from 'react';
 import './App.css';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export default function HomeLayout() {
+
+  let { user } = useParams();
+  console.log(user);
+
   const navigate = useNavigate();
   return (
     <div className="Home_container">

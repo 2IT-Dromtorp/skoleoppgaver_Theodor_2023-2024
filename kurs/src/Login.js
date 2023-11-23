@@ -35,10 +35,11 @@ const LoginForm = () => {
     );
 
     if (user) {
+      console.log(user);
       setLoginError('');
       console.log('Login successful!');
       // Navigate to LayoutHome on successful login do not use /LayoutHome it will not take you to the main site
-      navigate('/');
+      navigate('/'+loginData.username);
     } else {
       setLoginError('Wrong username or password');
     }
