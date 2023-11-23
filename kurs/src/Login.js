@@ -1,3 +1,4 @@
+// LoginForm.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -18,28 +19,33 @@ const LoginForm = () => {
   };
 
   const handleLogin = () => {
-    const storedUserData = JSON.parse(localStorage.getItem('userData'));
+    // Retrieve existing user data from localStorage
+    const existingUsers = JSON.parse(localStorage.getItem('userData')) || [];
 
-    if (storedUserData) {
-      if (
-        loginData.username === storedUserData.username &&
-        loginData.password === storedUserData.password
-      ) {
-        setLoginError('');
-        console.log('Login successful!');
-        // Navigate to LayoutHome on successful login do not use /LayoutHome it will not take you to the main site
-        navigate('/');
-      } else {
-        setLoginError('feil brukernavn eller passord');
-      }
+    // Check if existingUsers is an array
+    if (!Array.isArray(existingUsers)) {
+      console.error('Invalid user data in localStorage. Resetting to an empty array.');
+      localStorage.setItem('userData', JSON.stringify([]));
+      return;
+    }
+
+    // Find user with matching username and password
+    const user = existingUsers.find(
+      (u) => u.username === loginData.username && u.password === loginData.password
+    );
+
+    if (user) {
+      setLoginError('');
+      console.log('Login successful!');
+      // Navigate to LayoutHome on successful login do not use /LayoutHome it will not take you to the main site
+      navigate('/');
     } else {
-      setLoginError('ingen bruker funnet. prøv igjen eller signup for å få tilgang.');
+      setLoginError('Wrong username or password');
     }
   };
 
   return (
     <div>
-      <div>
       <h2>Login</h2>
       <form>
         <label>
@@ -57,10 +63,10 @@ const LoginForm = () => {
         </button>
       </form>
       {loginError && <p style={{ color: 'red' }}>{loginError}</p>}
-    </div>
-    <button onClick={() => navigate('/signup')}>to signup </button>
+      <button onClick={() => navigate('/signup')}>to signup</button>
     </div>
   );
 };
 
 export default LoginForm;
+

@@ -4,21 +4,79 @@
   height: 100vh;
 }
 
-.button {
-  position: absolute;
-  padding: 10px;
-}
+
 
 .top-right {
+  display: flex;
+  position: absolute;
   top: 10px;
   right: 10px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 .bottom-right {
+  display: flex;
+  position: absolute;
   bottom: 10px;
   right: 10px;
+  padding: 80px;
+  padding-left: 100px;
+  padding-right: 100px;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
 }
+
+
+.courses {
+  border: solid black 11px;
+}
+
 
 .coursebox {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.top-right-button-courses {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 20px 40px;
+  background-color: rgb(148, 148, 228);
+
+}
+
+.middle-buttons-courses {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+}
+
+.middle-button-courses {
+  margin: 0 10px;
+  padding: 50px 10px;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
 }
