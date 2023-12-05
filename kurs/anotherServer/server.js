@@ -23,7 +23,6 @@ app.get('/posts', (req, res) => {
 
 app.post('/login', (req, res) => {
     //authenticate user
-
 const username = req.body.username
 const user = {name: username}
 

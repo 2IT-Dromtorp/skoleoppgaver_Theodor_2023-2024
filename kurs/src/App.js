@@ -15,7 +15,7 @@ import Datakunnskap from './datakunnskap';
 function App() {
   return (
     <Routes>
-    <Route path="/" element={<HomeLayout  />} />  
+    <Route path="/:user" element={<HomeLayout  />} />  
     <Route path="/login" element={<Login  />} /> 
     <Route path="/signup" element={<Signup  />} /> 
     <Route path="/courses" element={<Courses  />} />
@@ -30,4 +30,4 @@ function App() {
 
 export default App;
 
-/* watch these tutorials later https://www.youtube.com/watch?v=8QgQKRcAUvM  https://www.youtube.com/watch?v=Ul3y1LXxzdU*/
+/* watch these tutorials later https://www.youtube.com/watch?v=8QgQKRcAUvM  https://www.youtube.com/watch?v=Ul3y1LXxzdU https://www.youtube.com/watch?v=jwEbw0zJqiY https://www.youtube.com/watch?v=cZAnibwI9u8 -> this one might be a little too longhttps://www.youtube.com/watch?v=F-sFp_AvHc8*/
