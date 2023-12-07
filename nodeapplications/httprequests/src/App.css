@@ -65,7 +65,9 @@ body{
   height: 10rem;
   margin: 20px;
   font-size: 2em;
+  color: white;
 }
+
 .button:hover{
   border: solid var(--buttonHoverBorder);
 }
