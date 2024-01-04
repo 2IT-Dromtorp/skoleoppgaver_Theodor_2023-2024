@@ -2,14 +2,16 @@ import { useState } from 'react';
 import './App.css';
 import Select from './select';
 import Update from './update';
-import Delete from './update';
-import Insert from './select';
+import axios from 'axios';
 
 export default function Home() {
-  const [content, setContent] = useState();
+
+  const [content, setContent] = useState(<Select />);
 
   function placeContentSelect() {
+
     setContent(<Select />);
+
   }
 
   function placeContentUpdate() {
@@ -17,11 +19,11 @@ export default function Home() {
   }
 
   function placeContentInsert() {
-   setContent(<Insert />);
+   setContent(<Update />);
  }
 
  function placeContentDelete() {
-   setContent(<Delete />);
+   setContent(<Select />);
  }
 
 

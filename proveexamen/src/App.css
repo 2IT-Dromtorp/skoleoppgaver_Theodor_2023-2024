@@ -1,0 +1,140 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  flex-grow: 1; 
+  padding-top: 70px;
+}
+
+h1 {
+  color: #333;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.ticket {
+  background-color: #fff;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%; 
+  box-sizing: border-box; 
+  word-break: break-all;
+}
+
+.ticket h3 {
+  margin: 0;
+}
+
+.ticket p {
+  color: #555;
+  white-space: pre-line;
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+.ticket button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 8px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.completed {
+  background-color: #b0e57c;
+}
+
+.incomplete {
+  background-color: #f28c8c; 
+}
+.nav-container{
+  display: flex;
+  width: 100%;
+}
+.navbar-container {
+  background-color: #f8f8f8;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  box-sizing: content-box; 
+  width: 100%;
+  margin-top: 60px;
+}
+
+
+.navbar-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-list li {
+  margin: 0 10px;
+}
+
+
+
+.top-navbar {
+  background-color: #333;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  width: 100%; 
+  position: fixed; 
+  top: 0; 
+  z-index: 1000; 
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+li {
+  cursor: pointer;
+  font-size: 2em;
+}
+
+li:hover {
+  text-decoration: underline;
+}
+

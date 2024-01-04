@@ -1,9 +1,7 @@
-import './content.css';
+
 
 export default function Insert() {
     return (
-        <div className="container">
-            Her kommer en tabell med Insert
-        </div>
+        <div>  Her setter vi inn en ny rad i databasen vår </div>
     )
 }
