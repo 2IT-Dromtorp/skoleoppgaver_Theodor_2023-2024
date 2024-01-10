@@ -8,7 +8,7 @@ const Navbar = () => {
       <ul className="navbar-list">
         <li>Kontaktinformasjon:</li>
         <li>E-post: vth@gmail.com</li>
-        <li>Telefon: 123-456-7890</li>
+        <li>Telefon:    </li>
       </ul>
     </nav>
     </div>

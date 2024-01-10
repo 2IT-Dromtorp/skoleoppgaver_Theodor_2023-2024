@@ -1,10 +1,15 @@
+
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; 
 
-function UpdateUserForm() {
+
+export default function UpdateUserForm() {
+    const navigate = useNavigate;
     const [users, setUsers] = useState([]); 
     const [newHobby, setNewHobby] = useState('');
     const [selectedUserId, setSelectedUserId] = useState('');
+   
 
     useEffect(() => {
         const fetchData = async () => {
@@ -46,7 +51,7 @@ function UpdateUserForm() {
                     <input 
                         type="text" 
                         value={newHobby} 
-                        onChange={(e) => setNewHobby(e.target.value)} 
+                        onChange={(e) => setNewHobby(e.target.value)} x
                     />
                 </label>
                 <br />
@@ -70,4 +75,4 @@ function UpdateUserForm() {
     );
 }
 
-export default UpdateUserForm;
+
