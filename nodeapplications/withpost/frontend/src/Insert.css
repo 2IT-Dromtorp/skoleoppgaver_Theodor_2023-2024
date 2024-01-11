@@ -1,0 +1,22 @@
+.insert-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+  }
+  
+  .form-field,
+  .form-button {
+    width: calc(100% - 70px); 
+    max-width: 400px; 
+    margin: 10px 20px; 
+    display: block; 
+  }
+  
+  .form-button {
+    padding: 10px; /* Padding for the button for aesthetics */
+    margin-top: 20px; /* Add extra top margin for the button if needed */
+  }
+#container{
+    background-color: #090909;
+}

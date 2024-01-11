@@ -1,10 +1,11 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
+const port = 3000;
 var mysql = require('mysql');
-var cors = require('cors')
+var cors = require('cors');
 
-app.use(cors())
+app.use(cors());
+app.use(express.json()); // Middleware to parse JSON request bodies
 
 var connection = mysql.createConnection({
   host: 'localhost',
@@ -15,29 +16,24 @@ var connection = mysql.createConnection({
 });
 
 connection.connect(function(err) {
-
   if (err) {
     console.error('error connecting: ' + err.stack);
     return;
   }
-
   console.log('connected as id ' + connection.threadId);
 });
 
-
 app.get('/', (request, response) => {
-
   connection.query('SELECT * FROM elev', function (error, results, fields) {
     if (error) throw error;
     response.send(JSON.stringify(results));
   });
-  
-})
+});
 
-app.get("/updateuser/:newhobby/:id", (request, response) => {
-  
-  let newhobby = request.params.newhobby;
-  let id = request.params.id;
+// Changed to POST method for updating a user
+app.post("/updateuser", (request, response) => {
+  let newhobby = request.body.newhobby;
+  let id = request.body.id;
   console.log(newhobby);
   let sqlquery = 'UPDATE elev SET hobby=? WHERE ElevID=?';
 
@@ -45,24 +41,24 @@ app.get("/updateuser/:newhobby/:id", (request, response) => {
     if (error) throw error;
     response.send(JSON.stringify(results));
   });
-})
+});
 
-app.get("/adduser", (request, response) => {
-  const klasse = parseInt(request.query.Klasse, 10) || 0;
-  const datamaskinID = parseInt(request.query.DatamaskinID, 10) || 0;
+// POST route for adding a user
+app.post("/adduser", (request, response) => {
+  const klasse = parseInt(request.body.Klasse, 10) || 0;
+  const datamaskinID = parseInt(request.body.DatamaskinID, 10) || 0;
 
   let newUser = {
-    Fornavn: request.query.Fornavn || '',
-    Etternavn: request.query.Etternavn || '',
+    Fornavn: request.body.Fornavn || '',
+    Etternavn: request.body.Etternavn || '',
     Klasse: klasse,
-    Hobby: request.query.Hobby || '',
-    Kjonn: request.query.Kjonn || '',
+    Hobby: request.body.Hobby || '',
+    Kjonn: request.body.Kjonn || '',
     DatamaskinID: datamaskinID
   };
 
   console.log('Attempting to insert:', newUser);
 
-  // Specific checks for missing fields
   if (!newUser.Fornavn) {
     response.status(400).send('Missing required field: Fornavn');
     return;
@@ -75,7 +71,6 @@ app.get("/adduser", (request, response) => {
     response.status(400).send('Missing required field: Kjonn');
     return;
   }
-  // Add additional checks for other fields if they are required
 
   let sqlquery = 'INSERT INTO elev SET ?';
 
@@ -89,11 +84,9 @@ app.get("/adduser", (request, response) => {
   });
 });
 
-
-
-
-app.get("/deleteuser", (request, response) => {
-  let id = request.query.id;
+// POST route for deleting a user
+app.post("/deleteuser", (request, response) => {
+  let id = request.body.id;
 
   let sqlquery = 'DELETE FROM elev WHERE ElevID = ?';
 
@@ -103,8 +96,6 @@ app.get("/deleteuser", (request, response) => {
   });
 });
 
-
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
-
+  console.log(`Example app listening on port ${port}`);
+});

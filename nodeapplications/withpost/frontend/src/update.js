@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; 
 
-
 export default function UpdateUserForm() {
     const [users, setUsers] = useState([]); 
     const [newHobby, setNewHobby] = useState('');
     const [selectedUserId, setSelectedUserId] = useState('');
-   
 
     useEffect(() => {
         const fetchData = async () => {
@@ -20,25 +18,22 @@ export default function UpdateUserForm() {
                 console.error('Error fetching data:', error);
             }
         };
-
         fetchData();
     }, []);
 
-    
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const url = `http://localhost:3000/updateuser/${encodeURIComponent(newHobby)}/${encodeURIComponent(selectedUserId)}`;
-    
-        axios.get(url)
-            .then(response => {
-                alert('User updated successfully!');
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.error('There was an error updating the user!', error);
+        try {
+            const response = await axios.post(`http://localhost:3000/updateuser`, {
+                newhobby: newHobby,
+                id: selectedUserId
             });
+            alert('User updated successfully!');
+            console.log(response.data);
+        } catch (error) {
+            console.error('There was an error updating the user!', error);
+        }
     };
-    
 
     return (
         <div>
@@ -49,7 +44,7 @@ export default function UpdateUserForm() {
                     <input 
                         type="text" 
                         value={newHobby} 
-                        onChange={(e) => setNewHobby(e.target.value)} x
+                        onChange={(e) => setNewHobby(e.target.value)}
                     />
                 </label>
                 <br />
@@ -67,10 +62,8 @@ export default function UpdateUserForm() {
                     </select>
                 </label>
                 <br />
-                <button type="submit">Update</button>
+                <button type="submit" id='updatebutton'>Update</button>
             </form>
         </div>
     );
 }
-
-
