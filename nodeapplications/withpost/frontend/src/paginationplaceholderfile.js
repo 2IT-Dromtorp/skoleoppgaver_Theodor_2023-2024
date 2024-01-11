@@ -1,3 +1,7 @@
+//ligger her fordi det kan hende jeg finner en annen måte jeg har lyst til å fikse størelse probleme med men som en backup om jeg ikke klarer det og deleter noe viktig
+
+//for select .js
+/*
 import { useEffect, useState } from "react";
 import axios from "axios";
 import './table_style.css';
@@ -5,7 +9,7 @@ import './table_style.css';
 export default function Select() {
     const [elevData, setElevData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize, setPageSize] = useState(10); // Default page size
+    const [pageSize, setPageSize] = useState(10); 
     const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
@@ -22,6 +26,7 @@ export default function Select() {
             .catch(error => console.log(error));
     };
 
+   
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
     };
@@ -56,6 +61,7 @@ export default function Select() {
                 </tbody>
             </table>
             <div>
+                 Pagination Controls 
                 {[...Array(totalPages).keys()].map((page) => (
                     <button key={page} onClick={() => handlePageChange(page + 1)}>
                         {page + 1}
@@ -66,3 +72,31 @@ export default function Select() {
         </>
     );
 }
+
+
+// for update.js fordi den blir ødelgt uten å skifte for pagination fordi updte ikke forventer pagination som data
+
+useEffect(() => {
+  const fetchData = async () => {
+      try {
+          const response = await axios.get("http://localhost:3000/", {
+              params: {
+                  page: 1, 
+                  pageSize: 100 
+              }
+          });
+          if (response.data && response.data.data) {
+              setUsers(response.data.data);
+              if (response.data.data.length > 0) {
+                  setSelectedUserId(response.data.data[0].ElevID);
+              }
+          } else {
+              setUsers([]);
+          }
+      } catch (error) {
+          console.error('Error fetching data:', error);
+      }
+  };
+  fetchData();
+}, []);
+*/

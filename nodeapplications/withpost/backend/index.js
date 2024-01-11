@@ -5,7 +5,7 @@ var mysql = require('mysql');
 var cors = require('cors');
 
 app.use(cors());
-app.use(express.json()); // Middleware to parse JSON request bodies
+app.use(express.json()); 
 
 var connection = mysql.createConnection({
   host: 'localhost',
@@ -24,13 +24,35 @@ connection.connect(function(err) {
 });
 
 app.get('/', (request, response) => {
-  connection.query('SELECT * FROM elev', function (error, results, fields) {
-    if (error) throw error;
-    response.send(JSON.stringify(results));
+    const page = parseInt(request.query.page) || 1;
+    const pageSize = parseInt(request.query.pageSize) || 10; 
+    const offset = (page - 1) * pageSize;
+    const paginatedQuery = 'SELECT * FROM elev LIMIT ? OFFSET ?';
+    connection.query(paginatedQuery, [pageSize, offset], function (error, results) {
+      if (error) {
+        console.error('Error fetching paginated results:', error);
+        response.status(500).send('Error fetching data');
+        return;
+      }
+      const countQuery = 'SELECT COUNT(*) AS count FROM elev';
+      connection.query(countQuery, function (countError, countResults) {
+        if (countError) {
+          console.error('Error fetching count:', countError);
+          response.status(500).send('Error fetching count');
+          return;
+        }
+        response.json({
+          data: results,
+          total: countResults[0].count,
+          currentPage: page,
+          pageSize: pageSize
+        });
+      });
+    });
   });
-});
+  
 
-// Changed to POST method for updating a user
+
 app.post("/updateuser", (request, response) => {
   let newhobby = request.body.newhobby;
   let id = request.body.id;
@@ -43,7 +65,6 @@ app.post("/updateuser", (request, response) => {
   });
 });
 
-// POST route for adding a user
 app.post("/adduser", (request, response) => {
   const klasse = parseInt(request.body.Klasse, 10) || 0;
   const datamaskinID = parseInt(request.body.DatamaskinID, 10) || 0;
@@ -84,7 +105,7 @@ app.post("/adduser", (request, response) => {
   });
 });
 
-// POST route for deleting a user
+
 app.post("/deleteuser", (request, response) => {
   let id = request.body.id;
 

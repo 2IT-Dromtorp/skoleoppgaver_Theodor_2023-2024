@@ -7,28 +7,19 @@ export default function UpdateUserForm() {
     const [selectedUserId, setSelectedUserId] = useState('');
 
     useEffect(() => {
-  const fetchData = async () => {
-      try {
-          const response = await axios.get("http://localhost:3000/", {
-              params: {
-                  page: 1,
-                  pageSize: 100
-              }
-          });
-          if (response.data && response.data.data) {
-              setUsers(response.data.data); 
-              if (response.data.data.length > 0) {
-                  setSelectedUserId(response.data.data[0].ElevID);
-              }
-          } else {
-              setUsers([]);
-          }
-      } catch (error) {
-          console.error('Error fetching data:', error);
-      }
-  };
-  fetchData();
-}, []);
+        const fetchData = async () => {
+            try {
+                const response = await axios.get("http://localhost:3000/");
+                setUsers(response.data);
+                if (response.data.length > 0) {
+                    setSelectedUserId(response.data[0].ElevID);
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, []);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
