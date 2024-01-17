@@ -14,9 +14,29 @@
   }
   
   .form-button {
-    padding: 10px; /* Padding for the button for aesthetics */
-    margin-top: 20px; /* Add extra top margin for the button if needed */
+    padding: 10px; 
+    margin-top: 20px; 
   }
-#container{
+  #container{
     background-color: #090909;
-}
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #containerupdate{
+  background-color: #090909;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: 10px;
+  }
+  #updatebutton{
+  width: 100px;
+  }
+  
+  #containerdelete {
+  background-color: #090909;
+  padding: 10px;
+  }
+  

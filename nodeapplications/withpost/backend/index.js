@@ -53,17 +53,26 @@ app.get('/', (request, response) => {
   
 
 
-app.post("/updateuser", (request, response) => {
-  let newhobby = request.body.newhobby;
-  let id = request.body.id;
-  console.log(newhobby);
-  let sqlquery = 'UPDATE elev SET hobby=? WHERE ElevID=?';
-
-  connection.query(sqlquery, [newhobby, id], function (error, results, fields) {
-    if (error) throw error;
-    response.send(JSON.stringify(results));
+  app.put("/updateuser", (request, response) => {
+    let newhobby = request.body.newhobby;
+    let fornavn = request.body.fornavn;
+    let etternavn = request.body.etternavn;
+    let klasse = request.body.klasse;
+    let kjonn = request.body.kjonn;
+    let datamaskinID = request.body.datamaskinID;
+    let id = request.body.id;
+    
+    console.log(newhobby);
+  
+    
+    let sqlquery = 'UPDATE elev SET hobby=?, Fornavn=?, Etternavn=?, Klasse=?, Kjonn=?, DatamaskinID=? WHERE ElevID=?';
+  
+    connection.query(sqlquery, [newhobby, fornavn, etternavn, klasse, kjonn, datamaskinID, id], function (error, results, fields) {
+      if (error) throw error;
+      response.send(JSON.stringify(results));
+    });
   });
-});
+  
 
 app.post("/adduser", (request, response) => {
   const klasse = parseInt(request.body.Klasse, 10) || 0;
@@ -106,7 +115,7 @@ app.post("/adduser", (request, response) => {
 });
 
 
-app.post("/deleteuser", (request, response) => {
+app.delete("/deleteuser", (request, response) => {
   let id = request.body.id;
 
   let sqlquery = 'DELETE FROM elev WHERE ElevID = ?';
@@ -120,3 +129,7 @@ app.post("/deleteuser", (request, response) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+/*kan endre put og delete til post ved å bare endre .delete/put til post i index.js og i hver sin js fil 
+axios.delete(`http://localhost:3000/deleteuser'  const response = await axios.put(`http://localhost:3000/updateuser` 
+det er ingen grunn til å gjøre dette men du kan */

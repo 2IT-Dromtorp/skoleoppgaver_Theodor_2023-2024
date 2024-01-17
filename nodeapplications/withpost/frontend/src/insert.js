@@ -22,10 +22,9 @@ function Insert() {
     try {
       const response = await axios.post('http://localhost:3000/adduser', newUser);
       console.log(response.data);
-      // Handle success (e.g., clear form, show success message)
     } catch (error) {
       console.error(error);
-      // Handle error (e.g., show error message)
+      
     }
   };
 
