@@ -21,10 +21,8 @@ function Insert() {
     try {
       const response = await axios.get('http://localhost:3000/adduser', { params: newUser });
       console.log(response.data);
-      // Handle success
     } catch (error) {
       console.error(error);
-      // Handle error
     }
   };
 

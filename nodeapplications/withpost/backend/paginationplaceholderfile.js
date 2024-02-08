@@ -1,4 +1,4 @@
-
+//ligger her fordi det kan hende jeg finner en annen måte jeg har lyst til å fikse størelse probleme med men som en backup om jeg ikke klarer det og deleter noe viktig
 /*
 app.get('/', (request, response) => {
     const page = parseInt(request.query.page) || 1;

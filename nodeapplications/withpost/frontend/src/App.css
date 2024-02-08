@@ -71,7 +71,7 @@ button:hover{
   overflow-x: auto;
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 10px; /* Smaller padding */
+  padding: 10px; 
   margin: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -79,19 +79,19 @@ button:hover{
 .styled-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 1em; /* Adjust font size as needed */
+  font-size: 1em; 
   color: var(--primary-button);
-  width: auto; /* Allows the table to grow as needed */
-  min-width: 100%; /* Ensures it's at least as wide as its container */
+  width: auto; 
+  min-width: 100%; 
 
 }
 
 .styled-table th, .styled-table td {
   border: 1px solid #ddd;
-  padding: 6px; /* Smaller padding */
+  padding: 6px; 
   text-align: center;
-  padding: 8px 16px; /* Adjust padding for better spacing */
-  min-width: 100px; /* Minimum width for each cell */
+  padding: 8px 16px; 
+  min-width: 100px; 
 }
 
 .styled-table th {
@@ -114,3 +114,4 @@ button:hover{
   width: 15%;	
   height: 80%;
 }
+
